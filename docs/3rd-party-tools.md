@@ -153,6 +153,21 @@ This is meant for any kind of user. There is no configuration, and it's nearly i
 
 Upgraderr is a title parser that matches existing titles present in your qBittorrent client with the title submitted and returns a HTTP return code. The return codes indicate an action to perform next, if applicable.
 
+### Install Upgraderr (docker-compose) {#install-upgraderr}
+
+```yaml title="docker-compose.yml"
+version: "3.7"
+
+services:
+  upgraderr:
+    container_name: upgraderr
+    image: ghcr.io/kylesanderson/upgraderr:main
+    restart: unless-stopped
+    ports:
+      - 6940:6940
+```
+
+
 ### Arr functionality {#upgraderr-arr-functionality}
 
 On any filter, you may utilize the external tab as a pre-filter. Using this with a return code of 200 permits any unique titles to be added, or if they're a quality upgrade. This also acts as a deduplicator should you wish.
